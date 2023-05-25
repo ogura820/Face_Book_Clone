@@ -16,7 +16,7 @@ class BlogsController < ApplicationController
 
   def create
     Blog.create(blog_params)
-    redirect_to new_blog_path
+    redirect_to blogs_path
   end
 
   def show
@@ -45,7 +45,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image)
+    params.require(:blog).permit(:title, :content, :image, :image_cache)
   end
 end
 
