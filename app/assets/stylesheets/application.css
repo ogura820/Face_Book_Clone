@@ -28,8 +28,6 @@ text-align: center;
   padding: 15px;
 }
 
-
-
 .clearfix:after {
   content: "";
   display: block;
