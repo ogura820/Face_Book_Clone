@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
 
-  before_action :set_blog, only: [:show, :destroy]
+  before_action :set_blog, only: [:show, :destroy, :edit]
 
   def set_blog
     @blog = Blog.find(params[:id])
@@ -26,6 +26,12 @@ class BlogsController < ApplicationController
     @blog.destroy
     redirect_to blogs_path, notice:"ブログを削除しました！"
   end
+
+  def edit
+    set_blog
+  end
+
+  
 
   private
 
