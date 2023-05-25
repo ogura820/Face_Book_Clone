@@ -1,0 +1,11 @@
+<h1>ブログ詳細画面</h1>
+<p>タイトル: <%= @picture.title %></p>
+<p>内容: <%= @picture.content %></p>
+<p>
+  <% if @picture.image.present? %>
+    <%= image_tag @picture.image.url %>
+  <% else %>
+    画像なし
+  <% end %>
+</p>
+<p>投稿者： <%= @picture.user.name %></p>

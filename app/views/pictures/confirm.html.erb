@@ -1,15 +1,15 @@
 <h3>以下の内容で、送信する。</h3>
 
-<%= form_with(model: @blog, local: true, multipart: true) do |form| %>
+<%= form_with(model: @picture, local: true, multipart: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image %>
 
-  <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= @blog.content %></p>
+  <p>タイトル:<%= @picture.title %></p>
+  <p>本文:<%= @picture.content %></p>
   <p>
-    <% if @blog.image.present? %>
-      <%= image_tag @blog.image.url %>
+    <% if @picture.image.present? %>
+      <%= image_tag @picture.image.url %>
       <%= form.hidden_field :image_cache %>
     <% else %>
       画像なし

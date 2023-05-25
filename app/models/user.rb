@@ -5,5 +5,5 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   has_secure_password
   validates :password, length: { minimum: 6 }
-  has_many :blogs
+  has_many :pictures
 end

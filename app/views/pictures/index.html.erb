@@ -1,0 +1,31 @@
+<h1>ブログ一覧</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>画像</th>
+    <th>投稿者</th>
+  </tr>
+
+<% @pictures.each do |picture| %>
+  <tr>
+    <td><%= picture.title %></td>
+    <td><%= picture.content %></td>
+    <td>
+      <p>
+        <% if picture.image.present? %>
+          <%= image_tag picture.image.url %>
+        <% else %>
+          画像なし
+        <% end %>
+      </p>
+    </td>
+    <td><%= picture.user.name %></td>
+    <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
+    <td><%= link_to "ブログを編集する", edit_picture_path(picture.id) %></td>
+    <td><%= link_to 'ブログを削除する', picture_path(picture.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to "新規投稿", new_picture_path %>
