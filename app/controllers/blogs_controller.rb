@@ -1,4 +1,11 @@
 class BlogsController < ApplicationController
+
+  before_action :set_blog, only: [:show, :destroy]
+
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
+
   def index
     @blogs = Blog.all
   end
@@ -13,7 +20,11 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+  end
+
+  def destroy
+    @blog.destroy
+    redirect_to blogs_path, notice:"ブログを削除しました！"
   end
 
   private
