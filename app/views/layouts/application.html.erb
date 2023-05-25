@@ -11,18 +11,26 @@
   </head>
 
   <body>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
-  <% end %>
-
-  <% if logged_in? %>
-    <%= link_to "Profile", user_path(current_user.id) %>
-    <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <%= link_to "ブログ一覧画面", pictures_path %>
-  <% else %>
-    <%= link_to "Sign up", new_user_path %>
-    <%= link_to "Login", new_session_path %>
-  <% end %>
-  <%= yield %>
+    <header>
+      <h1>Face Book風アプリ</h1>
+      <% if logged_in? %>
+      <ul class="top_menu clearfix">
+        <li><a><%= link_to "Profile", user_path(current_user.id) %></a></li>
+        <li><a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a></li>
+        <li><a><%= link_to "投稿一覧画面", pictures_path %></a></li>
+      <% else %>
+        <li><a><%= link_to "Sign up", new_user_path %></a></li>
+        <li><a><%= link_to "Login", new_session_path %></a></li>
+      <% end %>
+      </a>
+    </header>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    <%= yield %>
+    <footer>
+     <p>Copyright &copy; 2023 OnO.</p>
+    </footer>
+  
   </body>
 </html>
